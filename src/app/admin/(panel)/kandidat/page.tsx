@@ -42,10 +42,7 @@ const mockCandidates: Candidate[] = [
     chairmanName: "Agus Wijaya",
     viceChairmanName: "Dian Kusuma",
     vision: "OSIS sebagai mitra strategis sekolah",
-    missions: [
-      "Meningkatkan kedisiplinan",
-      "Mengaktifkan mading digital",
-    ],
+    missions: ["Meningkatkan kedisiplinan", "Mengaktifkan mading digital"],
     createdAt: "2026-06-01",
   },
 ];
@@ -55,7 +52,9 @@ export default function DataKandidatPage() {
   const [isOpen, setIsOpen] = useState(false);
 
   const filteredCandidates = mockCandidates.filter((c) =>
-    `${c.chairmanName} ${c.viceChairmanName}`.toLowerCase().includes(searchQuery.toLowerCase())
+    `${c.chairmanName} ${c.viceChairmanName}`
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase()),
   );
 
   return (
@@ -70,69 +69,67 @@ export default function DataKandidatPage() {
           </p>
         </div>
 
-        <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogTrigger asChild>
-            <Button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-medium transition-all active:scale-[0.98] shadow-md shadow-blue-500/20">
-              <Plus className="w-5 h-5" />
-              <span>Tambah Paslon</span>
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-2xl">
-            <DialogHeader>
-              <DialogTitle>Tambah Pasangan Calon Baru</DialogTitle>
-            </DialogHeader>
-            <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-slate-700 mb-1 block">
-                    Nama Ketua
-                  </label>
-                  <input
-                    placeholder="Nama lengkap ketua"
-                    className="w-full p-2 border rounded-lg"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-slate-700 mb-1 block">
-                    Nama Wakil Ketua
-                  </label>
-                  <input
-                    placeholder="Nama lengkap wakil"
-                    className="w-full p-2 border rounded-lg"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="text-sm font-medium text-slate-700 mb-1 block">
-                  Visi
-                </label>
-                <textarea
-                  placeholder="Tuliskan visi..."
-                  className="w-full p-2 border rounded-lg"
-                  rows={3}
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium text-slate-700 mb-1 block">
-                  Misi (pisahkan dengan enter)
-                </label>
-                <textarea
-                  placeholder="Tuliskan misi..."
-                  className="w-full p-2 border rounded-lg"
-                  rows={4}
-                />
-              </div>
-            </div>
-            <DialogFooter>
-              <Button
-                onClick={() => setIsOpen(false)}
-                className="bg-blue-600 hover:bg-blue-700 text-white"
-              >
-                Simpan
-              </Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
+          <Dialog open={isOpen} onOpenChange={setIsOpen}>
+  <DialogTrigger className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-medium transition-all active:scale-[0.98] shadow-md shadow-blue-500/20">
+    <Plus className="w-5 h-5" />
+    <span>Tambah Paslon</span>
+  </DialogTrigger>
+  <DialogContent className="sm:max-w-2xl">
+    <DialogHeader>
+      <DialogTitle>Tambah Pasangan Calon Baru</DialogTitle>
+    </DialogHeader>
+    <div className="grid gap-4 py-4">
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="text-sm font-medium text-slate-700 mb-1 block">
+            Nama Ketua
+          </label>
+          <input
+            placeholder="Nama lengkap ketua"
+            className="w-full p-2 border rounded-lg"
+          />
+        </div>
+        <div>
+          <label className="text-sm font-medium text-slate-700 mb-1 block">
+            Nama Wakil Ketua
+          </label>
+          <input
+            placeholder="Nama lengkap wakil"
+            className="w-full p-2 border rounded-lg"
+          />
+        </div>
+      </div>
+      <div>
+        <label className="text-sm font-medium text-slate-700 mb-1 block">
+          Visi
+        </label>
+        <textarea
+          placeholder="Tuliskan visi..."
+          className="w-full p-2 border rounded-lg"
+          rows={3}
+        />
+      </div>
+      <div>
+        <label className="text-sm font-medium text-slate-700 mb-1 block">
+          Misi (pisahkan dengan enter)
+        </label>
+        <textarea
+          placeholder="Tuliskan misi..."
+          className="w-full p-2 border rounded-lg"
+          rows={4}
+        />
+      </div>
+    </div>
+    <DialogFooter>
+      <button
+        onClick={() => setIsOpen(false)}
+        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+      >
+        Simpan
+      </button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
       </div>
 
       <div className="bg-white/70 backdrop-blur-xl border border-white/40 rounded-2xl shadow-sm overflow-hidden">
@@ -176,13 +173,22 @@ export default function DataKandidatPage() {
                     {item.vision}
                   </td>
                   <td className="px-6 py-4 text-right flex justify-end gap-2">
-                    <button className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg" title="Lihat Detail">
+                    <button
+                      className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg"
+                      title="Lihat Detail"
+                    >
                       <Eye className="w-4 h-4" />
                     </button>
-                    <button className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg" title="Edit">
+                    <button
+                      className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg"
+                      title="Edit"
+                    >
                       <Edit className="w-4 h-4" />
                     </button>
-                    <button className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg" title="Hapus">
+                    <button
+                      className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg"
+                      title="Hapus"
+                    >
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </td>

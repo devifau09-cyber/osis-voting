@@ -311,7 +311,7 @@ export default function VotePage() {
             </div>
           </div>
 
-          <AlertDialogDescription asChild>
+          <AlertDialogDescription >
             <div className="bg-blue-50/50 rounded-lg p-4 border border-blue-100 flex gap-2 items-start">
               <Gavel className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
               <span className="text-xs text-slate-600 leading-relaxed block">

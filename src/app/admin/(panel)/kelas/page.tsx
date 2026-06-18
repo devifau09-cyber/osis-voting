@@ -39,7 +39,7 @@ export default function DataKelasPage() {
   const [isOpen, setIsOpen] = useState(false);
 
   const filteredClasses = mockClasses.filter((c) =>
-    c.name.toLowerCase().includes(searchQuery.toLowerCase())
+    c.name.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   return (
@@ -55,56 +55,54 @@ export default function DataKelasPage() {
         </div>
 
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogTrigger asChild>
-            <Button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-medium transition-all active:scale-[0.98] shadow-md shadow-blue-500/20">
-              <Plus className="w-5 h-5" />
-              <span>Tambah Kelas</span>
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle>Tambah Kelas Baru</DialogTitle>
-            </DialogHeader>
-            <div className="grid gap-4 py-4">
-              <div>
-                <label className="text-sm font-medium text-slate-700 mb-1 block">
-                  Nama Kelas
-                </label>
-                <input
-                  placeholder="Contoh: X.PPLG-1"
-                  className="w-full p-2 border rounded-lg"
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium text-slate-700 mb-1 block">
-                  Tingkat
-                </label>
-                <select className="w-full p-2 border rounded-lg">
-                  <option value="10">Kelas 10</option>
-                  <option value="11">Kelas 11</option>
-                </select>
-              </div>
-              <div>
-                <label className="text-sm font-medium text-slate-700 mb-1 block">
-                  Jumlah Siswa
-                </label>
-                <input
-                  type="number"
-                  placeholder="36"
-                  className="w-full p-2 border rounded-lg"
-                />
-              </div>
-            </div>
-            <DialogFooter>
-              <Button
-                onClick={() => setIsOpen(false)}
-                className="bg-blue-600 hover:bg-blue-700 text-white"
-              >
-                Simpan
-              </Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
+  <DialogTrigger className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-medium transition-all active:scale-[0.98] shadow-md shadow-blue-500/20">
+    <Plus className="w-5 h-5" />
+    <span>Tambah Kelas</span>
+  </DialogTrigger>
+  <DialogContent className="sm:max-w-[425px]">
+    <DialogHeader>
+      <DialogTitle>Tambah Kelas Baru</DialogTitle>
+    </DialogHeader>
+    <div className="grid gap-4 py-4">
+      <div>
+        <label className="text-sm font-medium text-slate-700 mb-1 block">
+          Nama Kelas
+        </label>
+        <input
+          placeholder="Contoh: X.PPLG-1"
+          className="w-full p-2 border rounded-lg"
+        />
+      </div>
+      <div>
+        <label className="text-sm font-medium text-slate-700 mb-1 block">
+          Tingkat
+        </label>
+        <select className="w-full p-2 border rounded-lg">
+          <option value="10">Kelas 10</option>
+          <option value="11">Kelas 11</option>
+        </select>
+      </div>
+      <div>
+        <label className="text-sm font-medium text-slate-700 mb-1 block">
+          Jumlah Siswa
+        </label>
+        <input
+          type="number"
+          placeholder="36"
+          className="w-full p-2 border rounded-lg"
+        />
+      </div>
+    </div>
+    <DialogFooter>
+      <button
+        onClick={() => setIsOpen(false)}
+        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+      >
+        Simpan
+      </button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
       </div>
 
       <div className="bg-white/70 backdrop-blur-xl border border-white/40 rounded-2xl shadow-sm overflow-hidden">
